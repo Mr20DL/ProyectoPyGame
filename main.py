@@ -1,5 +1,6 @@
 import pygame
 import constantes
+from constantes import ESCALA_PERSONAJE
 from personaje import Personaje
 
 pygame.init()
@@ -9,8 +10,8 @@ ventana = pygame.display.set_mode((constantes.ANCHO_VENTANA,constantes.ALTO_VENT
 pygame.display.set_caption("Jueguito")
 
 player_image = pygame.image.load("assets//images//characters//player//perrito.jpg")
-
-jugador = Personaje(50,50)
+player_image = pygame.transform.scale(player_image, (player_image.get_width()*constantes.ESCALA_PERSONAJE,player_image.get_height()*constantes.ESCALA_PERSONAJE))
+jugador = Personaje(50,50, player_image)
 
 #definir variables de movimiento del jugador
 mover_arriba = False
